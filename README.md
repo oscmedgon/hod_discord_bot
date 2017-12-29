@@ -1,2 +1,2 @@
 # hod_discord_bot
-Under construction
+Under hard construction
