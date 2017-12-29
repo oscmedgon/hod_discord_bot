@@ -1,19 +1,34 @@
 #!/bin/bash
 ## Saving commits latest commits local and head
 git -C /home/oscraker/hod_discord_bot/ log > local.update.log
-git -C /home/oscraker/hod_discord_bot/ log HEAD master > remote.update.log
+git ls-remote > remote.update.log
 
 ## Saving commits to be cheched
 lastUpdateLocal=`head -1 local.update.log | cut -d " " -f2-`
-lastUpdateRemote=`head -1 remote.update.log | cut -d " " -f2-`
-
+hashLength=${#lastUpdateLocal}
+lastUpdateRemote=`head -1 remote.update.log | cut -c 1-$hashLength`
 ## print las local version
 echo "Your latest local commit is" $lastUpdateLocal
 echo "Your latest remote commit is" $lastUpdateRemote
 
 if [ "$lastUpdateLocal" == "$lastUpdateRemote" ]
 then
-	echo "Your app it's up to date"
+	echo "Your app it's up to date" >> update.log
 else
-	echo "Your app must be updated"
+	echo "Your app must be updated" >> update.log
+	pid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`
+	kill $pid 
+	git pull
+	npm install
+	/etc/init.d/hod-bot start
+	newPid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`
+	if [ -n "$newPid" ]
+	then
+		echo "App it's running on PID " $newPid >> update.log
+	else
+		echo "Something went whrong app isn't running" >> update.log
+	fi
 fi
+DATE=`date '+%Y-%m-%d %H:%M:%S'`
+echo "Executed at: " $DATE  >> update.log
+echo "-----------------------------------" >> update.log
