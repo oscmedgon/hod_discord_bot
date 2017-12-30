@@ -11,7 +11,9 @@ client.on('ready', () => {
   client.user.setGame('!hod para ser saludado')
 })
 client.on('message', message => {
-  if (message.content === '!hod') {
+  const ignoreCaps = message.content.toLowerCase()
+  if (ignoreCaps.search('!hod') !== -1) {
+    message.react(':wink:')
     message.reply('es la caña.')
   }
 })
