@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/oscmedgon/hod_discord_bot#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "discord.js": "^11.2.1",
     "dotenv": "^4.0.0"
   },

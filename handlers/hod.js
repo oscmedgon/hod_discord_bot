@@ -20,5 +20,6 @@ const frasesChulas = [
   'EEEEEL PULPOOO!!!!',
   'AAAASIENDA DEL PATRÓOOON!!!!',
   'Feliz navidad!!!',
-  'A farmear plásticos'
+  'A farmear plásticos',
+  'Que podría salir mal'
 ]
