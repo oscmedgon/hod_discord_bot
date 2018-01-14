@@ -1,10 +1,9 @@
 const salute = message => {
-  message.reply(fraseRandom())
+  message.channel.sendMessage(fraseRandom())
 }
 const fraseRandom = () => frasesChulas[Math.floor(Math.random() * frasesChulas.length)]
 
 const hod = message => {
-  message.react('👋')
   salute(message)
 }
 
@@ -15,11 +14,11 @@ const frasesChulas = [
   'Pero esto quien lo paga',
   'Que no me robes mis frases',
   'Hooola maldiiiito!!!',
-  'GÑAAAAA!!!!(Periko saludando)',
   'Matar',
   'EEEEEL PULPOOO!!!!',
   'AAAASIENDA DEL PATRÓOOON!!!!',
   'Feliz navidad!!!',
   'A farmear plásticos',
-  'Que podría salir mal'
+  'Que podría salir mal',
+  'Que se nos hace muy de noche'
 ]

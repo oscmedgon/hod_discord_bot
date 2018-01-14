@@ -8,8 +8,13 @@ const link = async message => {
     username: message.author.username,
     id: message.author.id
   }
-  const {data} = await axios.post('http://localhost:8080/api/discord/sign?', user)
-  message.reply(`http://localhost:8080/api/discord/${data.token}`)
+  try {
+    const {data} = await axios.post('http://localhost:8080/api/discord/sign?', user)
+    message.author.sendMessage(`http://localhost:8080/api/discord/${data.token}`)
+  } catch (error) {
+    message.author.sendMessage(`Ha ocurrido un error.`)
+    message.author.sendMessage(error.response.data.msg)
+  }
 }
 
 module.exports = link
