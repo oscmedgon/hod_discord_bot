@@ -35,7 +35,7 @@ else
 	echo "NEW PID $newPid";
 	if [ -n "$newPid" ]
 	then
-		echo "App it's running on PID " $newPid >> update.log &;
+		echo "App it's running on PID " $newPid >> update.log &
 	else
 		wall "Discord bot updater finished with error";
 		echo "Something went whrong app isn't running" >> update.log;
