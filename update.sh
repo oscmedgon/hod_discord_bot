@@ -20,12 +20,13 @@ else
 	kill $pid 
 	git pull
 	npm install
-	/etc/init.d/hod-bot start
+	npm start > bot.log &
 	newPid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`
 	if [ -n "$newPid" ]
 	then
 		echo "App it's running on PID " $newPid >> update.log
 	else
+		wall "Discord bot updater finished with error"
 		echo "Something went whrong app isn't running" >> update.log
 	fi
 fi
