@@ -20,7 +20,7 @@ else
 	kill $pid;
 	git pull;
 	yarn;
-	/home/oscraker/.nvm/versions/node/v8.9.3/bin/node /home/oscraker/hod_discord_bot/index.js;
+	node index.js;
 	newPid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`;
 	echo "App running with $newPid PID";
 	if [ -n "$newPid" ]
