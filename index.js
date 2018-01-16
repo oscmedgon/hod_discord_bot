@@ -1,3 +1,7 @@
+const hod = require('./handlers/hod')
+const link = require('./handlers/link')
+const help = require('./handlers/help')
+
 const Discord = require('discord.js')
 const client = new Discord.Client()
 
@@ -7,15 +11,21 @@ const token = process.env.TOKEN
 
 client.on('ready', () => {
   console.log('I am ready!')
-  client.user.setStatus('!hod para ser saludado')
-  client.user.setGame('!hod para ser saludado')
+  client.user.setStatus('!help')
+  client.user.setGame('!help')
 })
 client.on('message', message => {
-  console.log(message)
+  // Don't forget to log the message!
   const ignoreCaps = message.content.toLowerCase()
-  if (ignoreCaps.search('!hod') !== -1) {
-    message.react(':wink:')
-    message.reply('es la caña.')
+  if (ignoreCaps.search('hod') !== -1) {
+    console.log(hod)
+    hod(message)
+  }
+  if (ignoreCaps === '!link') {
+    link(message)
+  }
+  if (ignoreCaps === '!help') {
+    help(message)
   }
 })
 
