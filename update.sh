@@ -13,7 +13,18 @@ echo "Your latest remote commit is" $lastUpdateRemote
 
 if [ "$lastUpdateLocal" == "$lastUpdateRemote" ]
 then
-	echo "Your app it's up to date" >> update.log
+	pid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`;
+	if [ -n "$pid" ]
+		then
+			echo "Your app it's up to date and running"
+			echo "Your app it's up to date and running" >> update.log
+		else
+			node index.js > launch.log
+			echo "Your app was closed, App it's up to date and running"
+			echo "Your app was closed, App it's up to date and running" >> update.log
+
+
+
 else
 	echo "Your app must be updated" >> update.log
 	pid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`;
@@ -21,7 +32,7 @@ else
 	kill $pid;
 	git pull;
 	yarn;
-	node index.js;
+	node index.js > launch.log;
 	newPid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`;
 	echo "NEW PID $newPid";
 	if [ -n "$newPid" ]
