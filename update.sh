@@ -22,6 +22,7 @@ then
 			node index.js > launch.log
 			echo "Your app was closed, App it's up to date and running"
 			echo "Your app was closed, App it's up to date and running" >> update.log & exit
+		fi
 else
 	echo "Your app must be updated" >> update.log
 	pid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`;
