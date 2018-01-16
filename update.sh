@@ -16,18 +16,19 @@ then
 	echo "Your app it's up to date" >> update.log
 else
 	echo "Your app must be updated" >> update.log
-	pid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`
-	kill $pid
-	git pull
-	/home/oscraker/.nvm/versions/node/v8.9.3/bin/npm install
-	/home/oscraker/.nvm/versions/node/v8.9.3/bin/node /home/oscraker/hod_discord_bot/index.js
-	newPid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`
+	pid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`;
+	kill $pid;
+	git pull;
+	yarn;
+	/home/oscraker/.nvm/versions/node/v8.9.3/bin/node /home/oscraker/hod_discord_bot/index.js;
+	newPid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`;
+	echo "App running with $newPid PID";
 	if [ -n "$newPid" ]
 	then
-		echo "App it's running on PID " $newPid >> update.log
+		echo "App it's running on PID " $newPid >> update.log;
 	else
-		wall "Discord bot updater finished with error"
-		echo "Something went whrong app isn't running" >> update.log
+		wall "Discord bot updater finished with error";
+		echo "Something went whrong app isn't running" >> update.log;
 	fi
 fi
 DATE=`date '+%Y-%m-%d %H:%M:%S'`
