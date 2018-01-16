@@ -19,8 +19,8 @@ else
 	pid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`
 	kill $pid
 	git pull
-	npm install
-	nmp start /home/oscraker/hod_discord_bot/index.js
+	/home/oscraker/.nvm/versions/node/v8.9.3/bin/npm install
+	/home/oscraker/.nvm/versions/node/v8.9.3/bin/node /home/oscraker/hod_discord_bot/index.js
 	newPid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`
 	if [ -n "$newPid" ]
 	then

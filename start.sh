@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Starting process"
-npm install;
+/home/oscraker/.nvm/versions/node/v8.9.3/bin/npm install;
 echo "All dependencies are up to date"
-node index.js > launch.log & exit;
+/home/oscraker/.nvm/versions/node/v8.9.3/bin/node index.js > launch.log & exit;
 echo "Program started"
 done
