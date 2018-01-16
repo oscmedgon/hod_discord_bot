@@ -17,12 +17,13 @@ then
 else
 	echo "Your app must be updated" >> update.log
 	pid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`;
+	echo "Old PID $pid"
 	kill $pid;
 	git pull;
 	yarn;
 	node index.js;
 	newPid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`;
-	echo "App running with $newPid PID";
+	echo "NEW PID $newPid";
 	if [ -n "$newPid" ]
 	then
 		echo "App it's running on PID " $newPid >> update.log;
