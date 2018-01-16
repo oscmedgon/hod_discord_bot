@@ -19,12 +19,12 @@ then
 			echo "Your app it's up to date and running"
 			echo "Your app it's up to date and running" >> update.log
 		else
-			node index.js >> launch.log
+			node index.js >> launch.log &
 			echo "Your app was closed, App it's up to date and running"
 			echo "Your app was closed, App it's up to date and running" >> update.log & exit
 		fi
 else
-	echo "Your app must be updated" >> update.log
+	echo "Your app must be updated" >> update.log &
 	pid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`;
 	echo "Old PID $pid"
 	kill $pid;
@@ -35,7 +35,7 @@ else
 	echo "NEW PID $newPid";
 	if [ -n "$newPid" ]
 	then
-		echo "App it's running on PID " $newPid >> update.log;
+		echo "App it's running on PID " $newPid >> update.log &;
 	else
 		wall "Discord bot updater finished with error";
 		echo "Something went whrong app isn't running" >> update.log;
