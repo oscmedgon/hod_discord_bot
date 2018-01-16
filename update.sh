@@ -17,10 +17,10 @@ then
 else
 	echo "Your app must be updated" >> update.log
 	pid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`
-	kill $pid 
+	kill $pid
 	git pull
 	npm install
-	/etc/init.d/hod-bot start
+	nmp start /home/oscraker/hod_discord_bot/index.js
 	newPid=`pgrep -d " " -f ^/home/oscraker/.nvm/versions/node/v8.9.3/bin/node`
 	if [ -n "$newPid" ]
 	then
