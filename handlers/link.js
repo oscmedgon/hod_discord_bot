@@ -9,8 +9,9 @@ const link = async message => {
     id: message.author.id
   }
   try {
-    const {data} = await axios.post('https://www.harbingersofdevastation.com/api/discord/sign?', user)
-    message.author.sendMessage(`https://www.harbingersofdevastation.com/api/discord/${data.token}`)
+    const url = process.env.API_URL + '/discord'
+    const {data} = await axios.post(`${url}/sign`, user)
+    message.author.sendMessage(`${url}/${data.token}`)
   } catch (error) {
     message.author.sendMessage(`Ha ocurrido un error.`)
     message.author.sendMessage(error.response.data.msg)

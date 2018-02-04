@@ -4,6 +4,7 @@ const salute = message => {
 const fraseRandom = () => frasesChulas[Math.floor(Math.random() * frasesChulas.length)]
 
 const hod = message => {
+  console.log(message.channel)
   salute(message)
 }
 
