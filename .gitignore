@@ -3,3 +3,5 @@
 node_modules
 nohup.out
 ./pid
+*.lock
+yarn*
