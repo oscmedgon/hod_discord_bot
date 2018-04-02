@@ -1,7 +1,7 @@
 const salute = message => {
   message.channel.sendMessage(fraseRandom())
 }
-const fraseRandom = () => frasesChulas[Math.floor(Math.random() * frasesChulas.length)]
+const fraseRandom = () => frasesChulas[Math.floor(Math.random() * frasesChulas.length)] + ':sweat_smile:'
 
 const hod = message => {
   console.log(message.channel)
@@ -21,5 +21,8 @@ const frasesChulas = [
   'Feliz navidad!!!',
   'A farmear plásticos',
   'Que podría salir mal',
-  'Que se nos hace muy de noche'
+  'Que se nos hace muy de noche',
+  'Como si se hubiera tenido un reventao ahí',
+  'Me han diagnosticado una mierda muy chunga :sob:',
+  'Barco a la vista, baby!! :sunglasses:' 
 ]
