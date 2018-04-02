@@ -1,7 +1,7 @@
 const salute = message => {
   message.channel.sendMessage(fraseRandom())
 }
-const fraseRandom = () => frasesChulas[Math.floor(Math.random() * frasesChulas.length)] + ':sweat_smile:'
+const fraseRandom = () => frasesChulas[Math.floor(Math.random() * frasesChulas.length)] + ' :sweat_smile:'
 
 const hod = message => {
   console.log(message.channel)
